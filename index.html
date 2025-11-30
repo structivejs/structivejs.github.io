@@ -1,6 +1,310 @@
 <!DOCTYPE html>
 <html lang="en">
-<div>
-  Structive
-</div>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Structive: Structure Path Framework - The Simple, Scalable Frontend Solution</title>
+<style>
+    /* Reset and Base Styles */
+    :root {
+        --primary-color: #0056b3;
+        --secondary-color: #00a86b;
+        --bg-light: #f8f9fa;
+        --text-dark: #333;
+        --text-light: #666;
+        --code-bg: #2d2d2d;
+        --code-text: #ccc;
+    }
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+    body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        line-height: 1.6;
+        color: var(--text-dark);
+    }
+    a { color: var(--primary-color); text-decoration: none; }
+    h1, h2, h3 { font-weight: 700; line-height: 1.2; }
+    section { padding: 4rem 2rem; }
+    .container { max-width: 1100px; margin: 0 auto; }
+    .btn {
+        display: inline-block;
+        padding: 0.8rem 2rem;
+        background-color: var(--primary-color);
+        color: white;
+        border-radius: 5px;
+        font-weight: 600;
+        transition: background-color 0.3s;
+    }
+    .btn:hover { background-color: #004494; }
+
+    /* Hero Section */
+    #hero {
+        background: linear-gradient(135deg, #e0f7fa 0%, #f0f4c3 100%);
+        text-align: center;
+        padding: 6rem 2rem;
+    }
+    #hero h1 {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+        color: #2c3e50;
+    }
+    #hero p {
+        font-size: 1.25rem;
+        color: var(--text-light);
+        max-width: 700px;
+        margin: 0 auto 2rem;
+    }
+
+    /* Core Philosophy Section */
+    #philosophy { background-color: white; text-align: center;}
+    #philosophy h2 { margin-bottom: 2rem; font-size: 2.5rem; }
+    .philosophy-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+        text-align: left;
+    }
+    .philosophy-item h3 { margin-bottom: 1rem; color: var(--primary-color);}
+
+    /* Features Section */
+    #features { background-color: var(--bg-light); }
+    #features h2 { text-align: center; margin-bottom: 3rem; font-size: 2.5rem;}
+    .feature-cards {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 1.5rem;
+    }
+    .card {
+        background: white;
+        padding: 2rem;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    }
+    .card h3 { margin-bottom: 1rem; }
+
+    /* Code Example Section */
+    #code-example { background-color: white; }
+    #code-example h2 { text-align: center; margin-bottom: 2rem; }
+    .code-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+    }
+    @media (max-width: 768px) { .code-container { grid-template-columns: 1fr; } }
+    .code-block {
+        background-color: var(--code-bg);
+        color: var(--code-text);
+        padding: 1.5rem;
+        border-radius: 8px;
+        overflow-x: auto;
+    }
+    .code-block h3 { color: white; margin-bottom: 1rem; }
+    pre { font-family: 'Courier New', Courier, monospace; font-size: 0.9rem; }
+    .code-comment { color: #888; }
+    .code-keyword { color: #c678dd; }
+    .code-string { color: #98c379; }
+    .code-function { color: #61afef; }
+
+    /* How It Works Section */
+    #how-it-works { background-color: var(--bg-light); text-align: center;}
+    .steps {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 2rem;
+        margin-top: 3rem;
+    }
+    .step-number {
+        display: inline-block;
+        width: 50px;
+        height: 50px;
+        line-height: 50px;
+        background-color: var(--secondary-color);
+        color: white;
+        border-radius: 50%;
+        font-size: 1.5rem;
+        font-weight: bold;
+        margin-bottom: 1rem;
+    }
+
+    /* Footer */
+    footer {
+        background-color: #2c3e50;
+        color: white;
+        padding: 3rem 2rem;
+        text-align: center;
+    }
+    footer a { color: var(--secondary-color); }
+</style>
+</head>
+<body>
+
+    <section id="hero">
+        <div class="container">
+            <h1>Structive: The Structure Path to Unified UI and State.</h1>
+            <p>A simple, scalable framework that eliminates the virtual DOM, boilerplate, and complex middle layers. Just define the data path, and your UI is fully reactive.</p>
+            <a href="#code-example" class="btn">See How It Works</a>
+        </div>
+    </section>
+
+    <section id="philosophy">
+        <div class="container">
+            <h2>The Philosophy: One Source of Truth</h2>
+            <p style="margin-bottom: 2rem; max-width: 800px; margin-left: auto; margin-right: auto;">We perceive "UI and State as different expressions of the same data." Therefore, they share the same data structure and are accessed via the same "Structure Path."</p>
+            <div class="philosophy-grid">
+                <div class="philosophy-item">
+                    <h3>What is a Structure Path?</h3>
+                    <p>It's like an "address" used to uniquely reference hierarchical data like JSON objects using strings. A path like <code>"product.name"</code> points directly to the property inside the object.</p>
+                </div>
+                <div class="philosophy-item">
+                    <h3>Direct & Consistent Relationship</h3>
+                    <p>The application's state is centralized. The UI's role is simply to draw this state. This prevents inconsistencies caused by managing data in multiple places.</p>
+                </div>
+                <div class="philosophy-item">
+                    <h3>Wildcard Abstraction</h3>
+                    <p>Use wildcards like <code>"users.*.name"</code> to abstractly denote elements within a list, allowing the same operation on all items within an array.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="features">
+        <div class="container">
+            <h2>Key Features</h2>
+            <div class="feature-cards">
+                <div class="card">
+                    <h3>Zero Boilerplate</h3>
+                    <p>Developers only need to declaratively describe how the UI should look in a given state and directly modify state as pure JavaScript objects.</p>
+                </div>
+                <div class="card">
+                    <h3>Virtual DOM Free</h3>
+                    <p>By establishing a 1-to-1 relationship via Structure Paths, UI changes are pinpointed directly to the state, and state changes are pinpointed directly back to the UI.</p>
+                </div>
+                <div class="card">
+                    <h3>True Reactivity with Proxies</h3>
+                    <p>State is wrapped in a Proxy. Using structure paths in set traps allows deep nesting changes to be detected easily, updating only the corresponding UI for high performance.</p>
+                </div>
+                <div class="card">
+                    <h3>Derived States as Getters</h3>
+                    <p>Derived states (values computed from primary state) are defined simply as getters using structure paths, maintaining the simple relationship between UI and data.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="code-example">
+        <div class="container">
+            <h2>Simple, Declarative Code</h2>
+            <p style="text-align: center; margin-bottom: 2rem;">Based on a Shopping Cart Component Example.</p>
+            <div class="code-container">
+                <div class="code-block">
+                    <h3>HTML Template</h3>
+                    <pre>
+<code>&lt;template&gt;
+  &lt;!-- Loop through items using a structure path --&gt;
+  {{ <span class="code-keyword">for</span>:<span class="code-string">cart.items</span> }}
+  &lt;tr&gt;
+    &lt;!-- Use wildcard (*) to reference current item --&gt;
+    &lt;td&gt;{{ <span class="code-string">cart.items.*.product.name</span> }}&lt;/td&gt;
+    
+    &lt;!-- Two-way binding works just by defining the path --&gt;
+    &lt;td&gt;
+      &lt;input type="number" 
+             data-bind="<span class="code-string">valueAsNumber: cart.items.*.quantity</span>"&gt;
+    &lt;/td&gt;
+    
+    &lt;!-- Display derived state (calculated in JS) --&gt;
+    &lt;td class="right"&gt;
+      {{ <span class="code-string">cart.items.*.price</span>|fix,2 }}
+    &lt;/td&gt;
+    
+    &lt;!-- Bind event handlers with paths --&gt;
+    &lt;td&gt;
+      &lt;button type="button" 
+              data-bind="<span class="code-string">onclick: onDeleteItemFromCart</span>"&gt;
+        Delete
+      &lt;/button&gt;
+    &lt;/td&gt;
+  &lt;/tr&gt;
+  {{ <span class="code-keyword">endfor</span>: }}
+&lt;/template&gt;</code>
+                    </pre>
+                </div>
+                <div class="code-block">
+                    <h3>JavaScript Logic</h3>
+                    <pre>
+<code>const products = [
+  { id: 1, name: <span class="code-string">"Smart Phone"</span>, price: 100 },
+  { id: 2, name: <span class="code-string">"Tablet"</span>, price: 200 },
+  { id: 3, name: <span class="code-string">"Laptop"</span>, price: 300 },
+  { id: 4, name: <span class="code-string">"Desktop"</span>, price: 400 },
+  { id: 5, name: <span class="code-string">"Smart Watch"</span>, price: 50 }
+];
+<span class="code-keyword">export default class</span> {
+  <span class="code-comment">// Primary State: Pure JS Objects</span>
+  cart = {
+    items:[
+      { product: products[0], quantity: 1 },
+      { product: products[1], quantity: 2 }
+    ]
+  }
+
+  <span class="code-comment">// Derived State: Defined as a getter using the path</span>
+  <span class="code-keyword">get</span> <span class="code-string">"cart.items.*.price"</span>() {
+    <span class="code-comment">// Loop context is handled automatically</span>
+    <span class="code-keyword">return</span> <span class="code-keyword">this</span>[<span class="code-string">"cart.items.*.product.price"</span>] * <span class="code-keyword">this</span>[<span class="code-string">"cart.items.*.quantity"</span>];
+  }
+
+  <span class="code-comment">// Methods act as event handlers or logic</span>
+  <span class="code-function">onDeleteItemFromCart</span>(event, index) {
+    <span class="code-comment">// Directly manipulate state array</span>
+    <span class="code-keyword">this</span>[<span class="code-string">"cart.items"</span>] = 
+      <span class="code-keyword">this</span>[<span class="code-string">"cart.items"</span>].toSpliced(index, 1);
+  }
+}</code>
+                    </pre>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="how-it-works">
+        <div class="container">
+            <h2>How It Works Under the Hood</h2>
+            <div class="steps">
+                <div>
+                    <span class="step-number">1</span>
+                    <h3>Define State & UI</h3>
+                    <p>Create a JS class for your state and an HTML template with structure paths like <code>{{ user.name }}</code>.</p>
+                </div>
+                <div>
+                    <span class="step-number">2</span>
+                    <h3>Proxy Wraps State</h3>
+                    <p>The framework wraps your state object in a Proxy to detect any changes made to properties, even deeply nested ones.</p>
+                </div>
+                <div>
+                    <span class="step-number">3</span>
+                    <h3>Direct Updates</h3>
+                    <p>When a path changes (e.g., <code>product.price = 200</code>), the framework identifies the exact UI element bound to that path and updates it directly. No Virtual DOM diffing needed.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <h2>Embrace Simplicity.</h2>
+            <p>Return to a simpler relationship between data and rendering with Structive.</p>
+            <br>
+            <div style="margin: 2rem 0;">
+                <a href="https://github.com/structivejs" class="btn" style="margin: 0.5rem;">View on GitHub</a>
+                <a href="https://github.com/structivejs/structive" class="btn" style="margin: 0.5rem;">Explore Monorepo</a>
+            </div>
+            <p>&copy; 2025 Structive. All rights reserved.</p>
+        </div>
+    </footer>
+
+</body>
 </html>
